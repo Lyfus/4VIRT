@@ -1,0 +1,38 @@
+﻿@using Interface_VCENTER.Models
+@model List<vmStatus>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div style="text-align: right; width: 100%; height: 5%"><button class="btn btn-success">Add VM</button></div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">Name</th>
+                <th scope="col" class="text-center">IP</th>
+                <th scope="col" class="text-center">Status</th>
+                <th scope="col" class="text-center">Last Backup date</th>
+                <th scope="col" class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (vmStatus vmstatus in Model)
+            {
+            <tr class="text-center">
+                <th scope="row">@vmstatus.name</th>
+                <td>@vmstatus.ip</td>
+                @if (vmstatus.status)
+                {
+                    <td><div class="checkbox"><label><input type="checkbox" disabled checked data-toggle="toggle"></label></div></td>
+                }
+                else
+                {
+                    <td><div class="checkbox"><label><input type="checkbox" disabled data-toggle="toggle"></label></div></td>
+                }
+            <td>@vmstatus.lastUpdate</td>
+            <td><button class="btn btn-default">Restart</button><button class="btn btn-danger">Delete</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>

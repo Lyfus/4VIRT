@@ -1,0 +1,16 @@
+﻿@using Interface_VCENTER.Models
+@model AccountViewModels
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<h2>Login</h2>
+
+<form method="post" action="/Account/Login">
+    <!-- Input and Submit elements -->
+    @Html.TextBoxFor(x => x.UserName)
+    @Html.TextBoxFor(x => x.Password)
+
+    <input type="submit" value="ENVOYER" />
+</form>

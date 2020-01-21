@@ -5,12 +5,28 @@
     ViewBag.Title = "Login";
     Layout = null;
 }
-<h2>Login</h2>
 
-<form method="post" action="/Account/Login">
-    <!-- Input and Submit elements -->
-    @Html.TextBoxFor(x => x.UserName)
-    @Html.TextBoxFor(x => x.Password)
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/Login.css")
+@Scripts.Render("~/bundles/modernizr")
 
-    <input type="submit" value="ENVOYER" />
-</form>
+<!------ Include the above in your HEAD tag ---------->
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="~/Content/logoSupinfo.jpg" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form method="post" action="/Account/Login">
+            <input type="text" id="login" class="fadeIn second" name="UserName" placeholder="login">
+            <input type="text" id="password" class="fadeIn third" name="Password" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</div>
